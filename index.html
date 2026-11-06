@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Karnataka | Travel Website</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <h2 class="logo">Explore <span>Karnataka</span></h2>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#food">Food</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#travel">Travel Info</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<!-- HOME SECTION -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Discover the Beauty of <span>Karnataka</span></h1>
+
+        <p>
+            Explore beautiful waterfalls, historical monuments,
+            peaceful hill stations and delicious Karnataka food.
+        </p>
+
+        <a href="#destinations" class="btn">Explore Destinations</a>
+
+    </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section class="intro">
+
+    <h2>Welcome to Karnataka</h2>
+
+    <p>
+        Karnataka is a beautiful state in South India known for
+        its rich culture, ancient temples, historical monuments,
+        green forests, waterfalls and amazing tourist destinations.
+        Explore the beauty of Karnataka with us!
+    </p>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+
+<section class="destinations" id="destinations">
+
+    <h2 class="section-title">Popular Tourist Destinations</h2>
+
+    <!-- SEARCH -->
+
+    <div class="filters">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search tourist places..."
+        >
+
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="Historical">Historical Places</option>
+            <option value="Waterfall">Waterfalls</option>
+            <option value="Hill Station">Hill Stations</option>
+            <option value="Nature">Nature</option>
+        </select>
+
+        <select id="districtFilter">
+            <option value="all">All Districts</option>
+            <option value="Vijayanagara">Vijayanagara</option>
+            <option value="Mysuru">Mysuru</option>
+            <option value="Chikkamagaluru">Chikkamagaluru</option>
+            <option value="Shivamogga">Shivamogga</option>
+            <option value="Kodagu">Kodagu</option>
+            <option value="Uttara Kannada">Uttara Kannada</option>
+            <option value="Ballari">Ballari</option>
+        </select>
+
+    </div>
+
+
+    <!-- RANDOM DESTINATION -->
+
+    <div class="random-box">
+
+        <h3>Can't decide where to go?</h3>
+
+        <button onclick="randomDestination()">
+            🎲 Generate Random Destination
+        </button>
+
+        <p id="randomResult"></p>
+
+    </div>
+
+
+    <!-- DESTINATION CARDS -->
+
+    <div class="card-container" id="destinationContainer">
+
+        <div class="card" data-category="Historical" data-district="Vijayanagara">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRrYdQjvx_WJFORH702tQfeXWKM2WNtvdgCqBV-t5HsQ&s=10" alt="Hampi">
+            <div class="card-content">
+                <h3>Hampi</h3>
+                <p>Famous for ancient temples and Vijayanagara Empire ruins.</p>
+                <p class="district">📍 Vijayanagara</p>
+                <button onclick="addFavorite('Hampi')">❤️ Favourite</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="Historical" data-district="Mysuru">
+            <img src="https://images.unsplash.com/photo-1602643163983-ed0babc39797?w=600" alt="Mysore Palace">
+            <div class="card-content">
+                <h3>Mysore Palace</h3>
+                <p>A magnificent royal palace with beautiful architecture.</p>
+                <p class="district">📍 Mysuru</p>
+                <button onclick="addFavorite('Mysore Palace')">❤️ Favourite</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="Hill Station" data-district="Chikkamagaluru">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" alt="Mullayanagiri">
+            <div class="card-content">
+                <h3>Mullayanagiri</h3>
+                <p>One of the highest mountain peaks in Karnataka.</p>
+                <p class="district">📍 Chikkamagaluru</p>
+                <button onclick="addFavorite('Mullayanagiri')">❤️ Favourite</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="Waterfall" data-district="Shivamogga">
+            <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=600" alt="Jog Falls">
+            <div class="card-content">
+                <h3>Jog Falls</h3>
+                <p>One of India's most famous waterfalls.</p>
+                <p class="district">📍 Shivamogga</p>
+                <button onclick="addFavorite('Jog Falls')">❤️ Favourite</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="Hill Station" data-district="Kodagu">
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=600" alt="Coorg">
+            <div class="card-content">
+                <h3>Coorg</h3>
+                <p>Beautiful hills, coffee plantations and green forests.</p>
+                <p class="district">📍 Kodagu</p>
+                <button onclick="addFavorite('Coorg')">❤️ Favourite</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="Nature" data-district="Uttara Kannada">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600" alt="Dandeli">
+            <div class="card-content">
+                <h3>Dandeli</h3>
+                <p>Famous for wildlife, forests and river adventures.</p>
+                <p class="district">📍 Uttara Kannada</p>
+                <button onclick="addFavorite('Dandeli')">❤️ Favourite</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="Historical" data-district="Ballari">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZpkV-96iMoNnqK_l16Lhq8tRYsocp2b37Sa4woIyvXA&s=10" alt="Bellary Fort">
+            <div class="card-content">
+                <h3>Ballari Fort</h3>
+                <p>A historical fort known for its impressive hilltop location.</p>
+                <p class="district">📍 Ballari</p>
+                <button onclick="addFavorite('Ballari Fort')">❤️ Favourite</button>
+            </div>
+        </div>
+
+    </div>
+
+    <p id="noResults" style="display:none; text-align:center;">
+        No destinations found!
+    </p>
+
+</section>
+
+
+<!-- FAVOURITES -->
+
+<section class="favorites">
+
+    <h2 class="section-title">❤️ My Favourite Places</h2>
+
+    <div id="favoriteList">
+        No favourite places added yet.
+    </div>
+
+</section>
+
+
+<!-- KARNATAKA FOOD -->
+
+<section class="food" id="food">
+
+    <h2 class="section-title">Famous Karnataka Food</h2>
+
+    <div class="food-container">
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=600" alt="Masala Dosa">
+            <h3>Masala Dosa</h3>
+            <p>A crispy dosa filled with delicious potato masala.</p>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600" alt="Idli">
+            <h3>Idli Vada</h3>
+            <p>A traditional South Indian breakfast.</p>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=600" alt="Biryani">
+            <h3>Donne Biryani</h3>
+            <p>A popular Karnataka-style flavourful biryani.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRAVEL BUDGET CALCULATOR -->
+
+<section class="budget" id="travel">
+
+    <h2 class="section-title">Travel Budget Calculator</h2>
+
+    <div class="budget-box">
+
+        <label>Number of People</label>
+        <input type="number" id="people" placeholder="Enter people">
+
+        <label>Number of Days</label>
+        <input type="number" id="days" placeholder="Enter days">
+
+        <label>Hotel Cost Per Day (₹)</label>
+        <input type="number" id="hotel" placeholder="Enter hotel cost">
+
+        <label>Food Cost Per Day (₹)</label>
+        <input type="number" id="foodCost" placeholder="Enter food cost">
+
+        <label>Travel Cost (₹)</label>
+        <input type="number" id="transport" placeholder="Enter travel cost">
+
+        <button onclick="calculateBudget()">Calculate Budget</button>
+
+        <h3 id="budgetResult"></h3>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <h2 class="section-title">Karnataka Photo Gallery</h2>
+
+    <div class="gallery-container">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqtmaykj_5lNpHHzOiljd0b_FY4SABjmeoNjU4qY6UFQ&s=10" alt="Karnataka landscape">
+
+        <img src="https://images.unsplash.com/photo-1602643163983-ed0babc39797?w=600" alt="Mysore Palace">
+
+        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=600" alt="Waterfall">
+
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" alt="Mountain">
+
+        <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600" alt="Nature">
+
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=600" alt="Forest">
+
+    </div>
+
+</section>
+
+
+<!-- TRAVEL INFORMATION -->
+
+<section class="information">
+
+    <h2 class="section-title">Travel Information</h2>
+
+    <div class="info-container">
+
+        <div class="info-card">
+            <h3>🚗 Transportation</h3>
+            <p>Karnataka has buses, trains, airports and taxi services.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>🏨 Accommodation</h3>
+            <p>Hotels, resorts and homestays are available in tourist places.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>🌤 Best Time to Visit</h3>
+            <p>October to March is a popular period for sightseeing.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>📍 Tourist Safety</h3>
+            <p>Follow local rules and check weather conditions before travelling.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>Explore Karnataka</h2>
+
+    <p>Discover | Experience | Enjoy</p>
+
+    <p>© 2026 Explore Karnataka. All Rights Reserved.</p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// SEARCH AND FILTER
+
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const districtFilter = document.getElementById("districtFilter");
+
+function filterPlaces() {
+
+    let search = searchInput.value.toLowerCase();
+    let category = categoryFilter.value;
+    let district = districtFilter.value;
+
+    let cards = document.querySelectorAll(".card");
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+
+        let name = card.querySelector("h3").innerText.toLowerCase();
+
+        let cardCategory = card.dataset.category;
+        let cardDistrict = card.dataset.district;
+
+        let searchMatch = name.includes(search);
+
+        let categoryMatch =
+            category === "all" || category === cardCategory;
+
+        let districtMatch =
+            district === "all" || district === cardDistrict;
+
+        if(searchMatch && categoryMatch && districtMatch) {
+
+            card.style.display = "block";
+            visibleCount++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        visibleCount === 0 ? "block" : "none";
+
+}
+
+searchInput.addEventListener("input", filterPlaces);
+categoryFilter.addEventListener("change", filterPlaces);
+districtFilter.addEventListener("change", filterPlaces);
+
+
+// FAVOURITE PLACES
+
+let favorites = [];
+
+function addFavorite(place) {
+
+    if(!favorites.includes(place)) {
+
+        favorites.push(place);
+
+    }
+
+    document.getElementById("favoriteList").innerHTML =
+        favorites.length
+        ? favorites.map(item => `<p>❤️ ${item}</p>`).join("")
+        : "No favourite places added yet.";
+
+}
+
+
+// RANDOM DESTINATION
+
+function randomDestination() {
+
+    let places = [
+        "Hampi",
+        "Mysore Palace",
+        "Mullayanagiri",
+        "Jog Falls",
+        "Coorg",
+        "Dandeli",
+        "Ballari Fort"
+    ];
+
+    let random = Math.floor(Math.random() * places.length);
+
+    document.getElementById("randomResult").innerHTML =
+        "Your next destination is: <b>" + places[random] + "</b>";
+
+}
+
+
+// TRAVEL BUDGET CALCULATOR
+
+function calculateBudget() {
+
+    let people = Number(document.getElementById("people").value);
+
+    let days = Number(document.getElementById("days").value);
+
+    let hotel = Number(document.getElementById("hotel").value);
+
+    let food = Number(document.getElementById("foodCost").value);
+
+    let transport = Number(document.getElementById("transport").value);
+
+    if(people <= 0 || days <= 0 ||
+       hotel < 0 || food < 0 || transport < 0) {
+
+        document.getElementById("budgetResult").innerHTML =
+            "Please enter valid values!";
+
+        return;
+
+    }
+
+    let total = ((hotel + food) * days * people) + transport;
+
+    document.getElementById("budgetResult").innerHTML =
+        "Estimated Travel Budget: ₹" + total.toLocaleString("en-IN");
+
+}
+
+</script>
+
+</body>
+</html>
